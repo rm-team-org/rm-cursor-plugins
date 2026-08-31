@@ -1,0 +1,4 @@
+{
+  "name": "rm-cursor-plugins",
+  "install": "./.cursor/install.sh"
+}
