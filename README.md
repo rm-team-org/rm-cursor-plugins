@@ -1,33 +1,52 @@
 # rm-cursor-plugins
 
-A collection of plugins approved for use with Cursor.
+The **Cursor plugin/skill marketplace for RazorMetrics** — a curated collection of
+plugins approved for use across the team.
 
-## Imported plugin collections
+Cursor indexes this repository directly from Git via the marketplace manifest at
+[`.cursor-plugin/marketplace.json`](.cursor-plugin/marketplace.json). No build or
+runtime is required to consume the marketplace; Cursor reads the manifest and each
+plugin's manifest straight from the repo.
+
+## Available plugins
+
+Defined in [`.cursor-plugin/marketplace.json`](.cursor-plugin/marketplace.json):
+
+| Plugin | Source |
+| --- | --- |
+| `aws-core` | [`agent-toolkit-for-aws/plugins/aws-core`](agent-toolkit-for-aws/plugins/aws-core) |
+| `aws-agents` | [`agent-toolkit-for-aws/plugins/aws-agents`](agent-toolkit-for-aws/plugins/aws-agents) |
+| `aws-data-analytics` | [`agent-toolkit-for-aws/plugins/aws-data-analytics`](agent-toolkit-for-aws/plugins/aws-data-analytics) |
+| `aws-agents-for-devsecops` | [`agent-toolkit-for-aws/plugins/aws-agents-for-devsecops`](agent-toolkit-for-aws/plugins/aws-agents-for-devsecops) |
+
+## Adding this marketplace to Cursor
+
+Dashboard → Plugins → **Add Marketplace** → *Import from Repo*, then point it at this
+repository. See the [Cursor plugins docs](https://cursor.com/docs/plugins) for details.
+
+## Imported sources
 
 ### agent-toolkit-for-aws
 
-Imported from [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws)
-into [`agent-toolkit-for-aws/`](agent-toolkit-for-aws/). It provides plugins, skills,
-and rules that help AI coding agents build, deploy, and manage applications on AWS
-(Cursor, Claude Code, Codex, and Kiro compatible).
+The AWS plugins above are vendored from
+[aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) into
+[`agent-toolkit-for-aws/`](agent-toolkit-for-aws/).
 
-## Development environment
+## Optional: validating plugins before publishing
 
-The toolchain is managed with [mise](https://mise.jdx.dev/) and defined in
-[`agent-toolkit-for-aws/mise.toml`](agent-toolkit-for-aws/mise.toml)
-(Node, Python, uv, gitleaks, and markdownlint-cli2).
+The marketplace itself needs no toolchain. The imported toolkit ships its own
+contributor validation (manifest/spec conformance, markdown lint, secret scan),
+managed with [mise](https://mise.jdx.dev/) and defined in
+[`agent-toolkit-for-aws/mise.toml`](agent-toolkit-for-aws/mise.toml). This is useful
+in CI to check plugin changes before they are approved, but is **not** required to
+serve the marketplace.
 
-Cloud Agents provision the environment automatically via
-[`.cursor/environment.json`](.cursor/environment.json), which runs
-[`.cursor/install.sh`](.cursor/install.sh). To set up locally:
+To run it, [`.cursor/install.sh`](.cursor/install.sh) provisions the toolchain
+(also wired into [`.cursor/environment.json`](.cursor/environment.json) for Cloud
+Agents):
 
 ```bash
 ./.cursor/install.sh
-```
-
-To lint, validate, and run the security scan for the imported toolkit:
-
-```bash
 cd agent-toolkit-for-aws
-mise run build
+mise run build   # lint + validate + security scan
 ```
