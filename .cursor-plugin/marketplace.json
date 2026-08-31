@@ -1,0 +1,31 @@
+{
+  "name": "razormetrics-cursor-plugins",
+  "owner": {
+    "name": "RazorMetrics"
+  },
+  "metadata": {
+    "description": "Cursor plugin/skill marketplace for RazorMetrics: curated, approved plugins for use across the team."
+  },
+  "plugins": [
+    {
+      "name": "aws-core",
+      "source": "agent-toolkit-for-aws/plugins/aws-core",
+      "description": "Build, deploy, and operate applications on AWS: IaC (CDK, CloudFormation), core services (Lambda, API Gateway, Step Functions, ECS/Fargate, IAM, Bedrock), databases, observability, messaging/streaming, SDKs, and cost optimization."
+    },
+    {
+      "name": "aws-agents",
+      "source": "agent-toolkit-for-aws/plugins/aws-agents",
+      "description": "Build, deploy, and operate AI agents on AWS with Amazon Bedrock AgentCore (Strands, LangGraph), Gateway/MCP tools, multi-agent orchestration, memory, evaluation, observability, and production hardening."
+    },
+    {
+      "name": "aws-data-analytics",
+      "source": "agent-toolkit-for-aws/plugins/aws-data-analytics",
+      "description": "Data lake, analytics, and ETL workflows with S3 Tables, AWS Glue, and Athena, plus vector storage and semantic search on Amazon S3 Vectors."
+    },
+    {
+      "name": "aws-agents-for-devsecops",
+      "source": "agent-toolkit-for-aws/plugins/aws-agents-for-devsecops",
+      "description": "Investigate incidents, review code and run UAT for release readiness, scan code for vulnerabilities, and run penetration tests with AWS DevOps Agent and AWS Security Agent."
+    }
+  ]
+}
