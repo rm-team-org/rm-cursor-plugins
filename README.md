@@ -18,6 +18,7 @@ Defined in [`.cursor-plugin/marketplace.json`](.cursor-plugin/marketplace.json):
 | `aws-agents` | [`agent-toolkit-for-aws/plugins/aws-agents`](agent-toolkit-for-aws/plugins/aws-agents) |
 | `aws-data-analytics` | [`agent-toolkit-for-aws/plugins/aws-data-analytics`](agent-toolkit-for-aws/plugins/aws-data-analytics) |
 | `aws-agents-for-devsecops` | [`agent-toolkit-for-aws/plugins/aws-agents-for-devsecops`](agent-toolkit-for-aws/plugins/aws-agents-for-devsecops) |
+| `atlassian` | [`plugins/atlassian`](plugins/atlassian) |
 
 ## Adding this marketplace to Cursor
 
@@ -31,6 +32,15 @@ repository. See the [Cursor plugins docs](https://cursor.com/docs/plugins) for d
 The AWS plugins above are vendored from
 [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) into
 [`agent-toolkit-for-aws/`](agent-toolkit-for-aws/).
+
+### atlassian
+
+The `atlassian` plugin is vendored from
+[atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server)
+into [`plugins/atlassian/`](plugins/atlassian/). It bundles the official Atlassian
+Rovo MCP server (`https://mcp.atlassian.com/v2/mcp`, OAuth — each user signs in on
+first use) plus skills for Jira and Confluence workflows. No secrets are stored in
+the repo.
 
 ## Optional: validating plugins before publishing
 
