@@ -10,14 +10,16 @@ plugin's manifest straight from the repo.
 
 ## Available plugins
 
-Defined in [`.cursor-plugin/marketplace.json`](.cursor-plugin/marketplace.json):
+Defined in [`.cursor-plugin/marketplace.json`](.cursor-plugin/marketplace.json); see
+[`docs/REGISTRY.md`](docs/REGISTRY.md) for each plugin's MCP servers, skill
+counts, and operational scope.
 
 | Plugin | Source |
 | --- | --- |
-| `aws-core` | [`agent-toolkit-for-aws/plugins/aws-core`](agent-toolkit-for-aws/plugins/aws-core) |
-| `aws-agents` | [`agent-toolkit-for-aws/plugins/aws-agents`](agent-toolkit-for-aws/plugins/aws-agents) |
-| `aws-data-analytics` | [`agent-toolkit-for-aws/plugins/aws-data-analytics`](agent-toolkit-for-aws/plugins/aws-data-analytics) |
-| `aws-agents-for-devsecops` | [`agent-toolkit-for-aws/plugins/aws-agents-for-devsecops`](agent-toolkit-for-aws/plugins/aws-agents-for-devsecops) |
+| `aws-core` | [`plugins/aws/aws-core`](plugins/aws/aws-core) |
+| `aws-agents` | [`plugins/aws/aws-agents`](plugins/aws/aws-agents) |
+| `aws-data-analytics` | [`plugins/aws/aws-data-analytics`](plugins/aws/aws-data-analytics) |
+| `aws-agents-for-devsecops` | [`plugins/aws/aws-agents-for-devsecops`](plugins/aws/aws-agents-for-devsecops) |
 | `atlassian` | [`plugins/atlassian`](plugins/atlassian) |
 
 ## Adding this marketplace to Cursor
@@ -30,8 +32,12 @@ repository. See the [Cursor plugins docs](https://cursor.com/docs/plugins) for d
 ### agent-toolkit-for-aws
 
 The AWS plugins above are vendored from
-[aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) into
-[`agent-toolkit-for-aws/`](agent-toolkit-for-aws/).
+[aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) and
+flattened to [`plugins/aws/`](plugins/aws/) so every plugin sits one level
+deep under `plugins/`, matching the other plugins in this marketplace.
+[`agent-toolkit-for-aws/`](agent-toolkit-for-aws/) itself still holds the
+upstream project's non-plugin scaffolding: canonical skill sources, docs,
+rules, and contributor tooling.
 
 ### atlassian
 
@@ -51,12 +57,19 @@ managed with [mise](https://mise.jdx.dev/) and defined in
 in CI to check plugin changes before they are approved, but is **not** required to
 serve the marketplace.
 
-To run it, [`.cursor/install.sh`](.cursor/install.sh) provisions the toolchain
-(also wired into [`.cursor/environment.json`](.cursor/environment.json) for Cloud
-Agents):
+**Known limitation:** the toolkit's own `tools/validate.py`,
+`tools/validate_spec.py`, and `tools/sync-plugin-skills.py` resolve `plugins/`
+relative to `agent-toolkit-for-aws/` itself, so `mise run build`/`validate`
+will find no plugins to check now that the AWS plugins live at
+[`plugins/aws/`](plugins/aws/) instead. This is unmodified vendored upstream
+code; re-pointing it at the new location would diverge from upstream and was
+left out of scope for this restructuring. None of `agent-toolkit-for-aws/`'s
+own `.github/workflows/` run in this repo either way — GitHub Actions only
+reads workflows from the repository-root `.github/workflows/`, not a nested
+one.
 
 ```bash
 ./.cursor/install.sh
 cd agent-toolkit-for-aws
-mise run build   # lint + validate + security scan
+mise run build   # lint + validate + security scan (see limitation above)
 ```
