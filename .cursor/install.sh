@@ -19,8 +19,8 @@ fi
 
 # 3. Install the toolchain (Node, Python, uv, gitleaks, markdownlint-cli2)
 #    pinned by the imported toolkit's mise.toml.
-cd "$REPO_ROOT/agent-toolkit-for-aws"
+cd "$REPO_ROOT/vendor/agent-toolkit-for-aws"
 mise trust
 mise install
 
-echo "Development environment ready. Run 'mise run build' in agent-toolkit-for-aws/ to lint, validate, and scan."
+echo "Development environment ready. Run 'python3 tools/generate_marketplace.py --check' at the repo root to validate the marketplace listing."

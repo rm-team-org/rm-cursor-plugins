@@ -8,29 +8,29 @@
   },
   "plugins": [
     {
-      "name": "aws-core",
-      "source": "plugins/aws/aws-core",
-      "description": "Build, deploy, and operate applications on AWS: IaC (CDK, CloudFormation), core services (Lambda, API Gateway, Step Functions, ECS/Fargate, IAM, Bedrock), databases, observability, messaging/streaming, SDKs, and cost optimization."
+      "name": "atlassian",
+      "source": "plugins/atlassian",
+      "description": "Connect AI agents to Atlassian products including Jira and Confluence, with reusable skills for common workflows."
     },
     {
       "name": "aws-agents",
       "source": "plugins/aws/aws-agents",
-      "description": "Build, deploy, and operate AI agents on AWS with Amazon Bedrock AgentCore (Strands, LangGraph), Gateway/MCP tools, multi-agent orchestration, memory, evaluation, observability, and production hardening."
-    },
-    {
-      "name": "aws-data-analytics",
-      "source": "plugins/aws/aws-data-analytics",
-      "description": "Data lake, analytics, and ETL workflows with S3 Tables, AWS Glue, and Athena, plus vector storage and semantic search on Amazon S3 Vectors."
+      "description": "Build, deploy, and operate AI agents on AWS. Skills for scaffolding agents with Amazon Bedrock AgentCore (Strands, LangGraph), connecting tools via Gateway and MCP, multi-agent and A2A orchestration, memory, Cedar policies, evaluation, observability, debugging traces and logs, and production hardening."
     },
     {
       "name": "aws-agents-for-devsecops",
       "source": "plugins/aws/aws-agents-for-devsecops",
-      "description": "Investigate incidents, review code and run UAT for release readiness, scan code for vulnerabilities, and run penetration tests with AWS DevOps Agent and AWS Security Agent."
+      "description": "Investigate incidents, review code and execute UAT for release readiness, scan code for vulnerabilities, and run penetration tests with AWS DevOps Agent and AWS Security Agent."
     },
     {
-      "name": "atlassian",
-      "source": "plugins/atlassian",
-      "description": "Atlassian plugin for Cursor with MCP (Rovo v2) and skills for Jira, Confluence, triage, backlogs, sprint dashboards, and status reports."
+      "name": "aws-core",
+      "source": "plugins/aws/aws-core",
+      "description": "Build, deploy, and operate applications on AWS. Skills to author infrastructure-as-code (CDK, CloudFormation), use core services (Lambda, API Gateway, Step Functions, ECS/Fargate, ECR, IAM, Amazon Bedrock with Knowledge Bases and Guardrails, AWS Blocks), select and operate databases across relational, key-value, document, wide-column, graph, time-series, and in-memory engines, and complete common tasks across observability, messaging and streaming, AWS SDKs, and cost optimization."
+    },
+    {
+      "name": "aws-data-analytics",
+      "source": "plugins/aws/aws-data-analytics",
+      "description": "Data lake, analytics, and ETL workflows with S3 Tables, AWS Glue, and Athena. Covers managed Iceberg tables on S3 Tables, ingestion from JDBC databases, Amazon Redshift, Snowflake, BigQuery, and DynamoDB, AWS Glue Data Catalog inventory and asset discovery, federated Athena queries, and vector storage and semantic search on Amazon S3 Vectors."
     }
   ]
 }
