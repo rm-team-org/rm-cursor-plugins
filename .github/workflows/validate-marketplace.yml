@@ -24,6 +24,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # gitleaks/gitleaks-action requires a paid license for organization
+      # repos (https://github.com/gitleaks/gitleaks-action#-announcement).
+      # The underlying gitleaks CLI is still free/open-source, so install
+      # and run it directly instead. Module path is zricethezav/gitleaks —
+      # it predates the project moving to the gitleaks GitHub org.
+      - run: go install github.com/zricethezav/gitleaks/v8@latest
+      - run: $(go env GOPATH)/bin/gitleaks detect --source . --redact -v
