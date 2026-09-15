@@ -1,0 +1,50 @@
+# Synthetic service contract — <dataset>
+
+## CONTRACT INDEX (do not rename keys)
+
+dataset_name: <dataset>
+service_repo: <rm_...>
+dataset_oracle: ../rm_db_migrations_liquibase/test_data/<db_type>/dml/<dataset>/README_<dataset>_scenarios.txt
+db_name: <db>
+
+## Working directory
+
+Repository root of `<service_repo>` (or a documented subdirectory).
+
+## Local config keys (no secrets)
+
+- `<key>` = `<value>`
+
+Rules: edit only listed keys; preserve credentials; never print or commit them;
+restore the original file after the run when temporary edits were required.
+
+## Run
+
+Committed (required for DB validation):
+
+```bash
+python main.py ...
+```
+
+Variants (mutually exclusive / optional):
+
+- ...
+
+Persist vs dry-run:
+
+- persist: ...
+- dry-run: ... (cannot satisfy post-run DB checks)
+
+## Input staging
+
+- none, or documented copy/create steps for local inputs
+
+## Cleanup
+
+- restore temporary config
+- remove staged inputs created only for the run when appropriate
+
+## Dataset oracle
+
+See `dataset_oracle` in the index for restore identity, scenarios, and
+verification queries.

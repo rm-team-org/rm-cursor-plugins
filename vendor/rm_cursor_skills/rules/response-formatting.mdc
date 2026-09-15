@@ -1,0 +1,33 @@
+---
+description: Response shape by task type — full template for patches; lighter/flexible for explore and explain.
+alwaysApply: true
+---
+# Response Formatting Guidelines
+
+Be concise. Lead with the answer. No filler. Do not explain basic programming concepts unless asked.
+
+## 1. Implementation (full template)
+Use when the user wants a **concrete change**: implement, patch, refactor, add a flag, "apply this," or a proposed diff.
+
+1. **Summary** — 1 sentence on what changes.
+2. **Code Implementation** (or **Proposed change**) — tight code/diff only; ask before applying if review-before-apply applies.
+3. **Verification** — 1–2 manual checks the user can run.
+
+## 2. Explanation / walkthrough (structured narrative OK)
+Use for "how does X work?", architecture, step-by-step flows (e.g. NVP population).
+
+1. **Summary** — 1–2 sentences (mental model).
+2. **Details** — sections, tables, short mermaid/math as needed. Do **not** force a Code Implementation section.
+3. **Verification** — only if they will run/check something next; otherwise omit.
+
+## 3. Light format (no full template)
+Use for debugging investigation, planning/tradeoffs, brainstorming, ops (commands/links), and short follow-ups.
+
+- Open with the answer in 1–2 sentences.
+- Add only necessary facts/bullets.
+- Skip Summary/Code/Verification labels unless they genuinely help.
+- For debugging: prefer hypothesis → evidence → next check over a premature fix+Verification.
+
+## 4. Defaults
+- If unsure between (1) and (2)/(3), prefer (2) or (3).
+- Do not invent Verification for pure Q&A.

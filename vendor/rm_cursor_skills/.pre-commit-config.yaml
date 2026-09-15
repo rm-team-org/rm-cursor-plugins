@@ -1,0 +1,24 @@
+# https://pre-commit.com — run once per clone: pre-commit install
+# Aligns commits with README.md (skills + rules layout).
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: validate-skills-layout
+        name: validate skills layout
+        entry: python3 scripts/validate_skills_layout.py
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: validate-rules-layout
+        name: validate rules layout
+        entry: python3 scripts/validate_rules_layout.py
+        language: system
+        pass_filenames: false
+        always_run: true

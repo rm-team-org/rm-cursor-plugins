@@ -1,0 +1,22 @@
+{
+  "pre-commit-config": {
+    "skipped-folders": [".bitbucket", ".tfsec"],
+    "use-precommit-override": "false",
+    "use-image-override": "",
+    "sonar": {
+      "PR": false,
+      "master": false
+    },
+    "languages": ["Python"]
+  },
+  "metadata": {
+    "modules": [
+      {
+        "module-name": "rm_cursor_skills",
+        "folder-path": ".",
+        "dependency-folders": [],
+        "language": "Python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+# Synthetic dataset oracle — <dataset>
+#
+# === CONTRACT INDEX (do not rename keys) ===
+# dataset_name: <dataset>
+# db_name: <db>
+# db_type: PLATFORM
+# manifest: test_data/<db_type>/dml/dml_restore_sequence_<dataset>.txt
+# service_repo: <rm_...>
+# service_contract: docs/synthetic_datasets/<dataset>.md
+# === END CONTRACT INDEX ===
+#
+# Purpose: <one sentence>
+# Reserved ranges: <IDs that must not collide with baseline or other datasets>
+#
+# Restore skeleton (local only; credentials supplied by validation skill):
+#   rm-db-create-synthetic-dataset.sh \
+#     --db-name=<db> --db-cluster=local --db-type=PLATFORM \
+#     --db-host=localhost --db-port=5432 \
+#     --dataset-name=<dataset> --db-create=true --ni
+#   Run/config: see service_contract above.
+#
+# Pre-run invariants:
+#   <queries or statements>
+#
+# Scenario matrix:
+#   <scenario_id>  <inputs>
+#                  Expected: <outcomes>
+#
+# Lifecycle actions (optional):
+#   <action.sql> → <transition>
+#
+# Verification queries (required by default — runnable PASS/FAIL asserts):
+#   <SQL that returns PASS/FAIL or expected-row checks for every scenario>
+#   Override with narrative-only notes only when the user explicitly opts out
+#   during authoring (confirm before skipping).
+#
+# Validation notes (optional, keep short):
+#   <scope keys, null handling, aggregate cross-checks>
