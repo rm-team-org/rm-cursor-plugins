@@ -187,15 +187,18 @@ the repo.
 ### Optional: the vendored AWS toolchain
 
 The marketplace itself needs no toolchain — `generate_marketplace.py` is
-stdlib-only Python. `vendor/agent-toolkit-for-aws/` additionally ships its
-own contributor validation (manifest/spec conformance, markdown lint, secret
-scan) managed with [mise](https://mise.jdx.dev/) and defined in
+stdlib-only Python, so the default environment (which already has Python 3.12)
+is enough to validate the listing.
+
+`vendor/agent-toolkit-for-aws/` additionally ships the upstream project's own
+contributor validation (manifest/spec conformance, markdown lint, secret scan)
+managed with [mise](https://mise.jdx.dev/) and defined in
 [`vendor/agent-toolkit-for-aws/mise.toml`](vendor/agent-toolkit-for-aws/mise.toml).
-Subject to the known limitation above, this can still be useful for
-inspecting the vendored AWS content itself:
+It is not needed to build or serve this marketplace. If you want to inspect the
+vendored AWS content with its own tooling, install `mise` yourself and run it in
+that directory (subject to the known limitation above):
 
 ```bash
-./.cursor/install.sh
 cd vendor/agent-toolkit-for-aws
 mise run build   # lint + secret scan (plugin/skill validation is a no-op here — see limitation above)
 ```
