@@ -1,11 +1,16 @@
 # plugins/razormetrics/
 
-Reserved for RazorMetrics-authored plugins — internal skills, MCP servers, or
-tools built in-house rather than vendored from a third party.
+RazorMetrics-authored plugins — internal skills, rules, MCP servers, or tools
+built in-house rather than vendored from a third party.
 
-This folder is intentionally empty right now. Company-internal skills exist
-today but are not yet approved for companywide distribution through this
-marketplace, so they are not published here. When one is ready, add it as its
-own plugin folder directly under `plugins/razormetrics/` (matching the layout
-used by every other plugin in this repo — see `docs/REGISTRY.md`), then run
-`python3 tools/generate_marketplace.py` to pick it up.
+Each plugin sits in its own folder directly under `plugins/razormetrics/`
+(matching the layout used by every other plugin in this repo — see
+`docs/REGISTRY.md`). After adding or changing one, run
+`python3 tools/generate_marketplace.py` to refresh the marketplace listing.
+
+## Plugins
+
+- [`razormetrics-core`](razormetrics-core/) — internal Cursor skills (CloudWatch/Jira
+  ALR alarm triage, Liquibase synthetic dataset authoring and validation) plus shared
+  agent rules (requirements clarification, response formatting). Vendored from
+  [rm_porcupine/rm_cursor_skills](https://bitbucket.org/rm_porcupine/rm_cursor_skills).

@@ -184,6 +184,19 @@ Rovo MCP server (`https://mcp.atlassian.com/v2/mcp`, OAuth — each user signs i
 first use) plus skills for Jira and Confluence workflows. No secrets are stored in
 the repo.
 
+#### rm_cursor_skills (RazorMetrics internal)
+
+The `razormetrics-core` plugin
+([`plugins/razormetrics/razormetrics-core/`](plugins/razormetrics/razormetrics-core/))
+is authored in-house and vendored from
+[rm_porcupine/rm_cursor_skills](https://bitbucket.org/rm_porcupine/rm_cursor_skills).
+It bundles internal skills (CloudWatch/Jira ALR alarm triage, Liquibase synthetic
+dataset authoring and validation) and shared agent rules (requirements
+clarification, response formatting). The upstream project's non-plugin
+scaffolding — contributor scripts, the `rm-link-cursor.sh` local installer, and
+CI config — lives under
+[`vendor/rm_cursor_skills/`](vendor/rm_cursor_skills/).
+
 ### Optional: the vendored AWS toolchain
 
 The marketplace itself needs no toolchain — `generate_marketplace.py` is
