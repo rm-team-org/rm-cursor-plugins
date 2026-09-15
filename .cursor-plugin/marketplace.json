@@ -31,6 +31,11 @@
       "name": "aws-data-analytics",
       "source": "plugins/aws/aws-data-analytics",
       "description": "Data lake, analytics, and ETL workflows with S3 Tables, AWS Glue, and Athena. Covers managed Iceberg tables on S3 Tables, ingestion from JDBC databases, Amazon Redshift, Snowflake, BigQuery, and DynamoDB, AWS Glue Data Catalog inventory and asset discovery, federated Athena queries, and vector storage and semantic search on Amazon S3 Vectors."
+    },
+    {
+      "name": "razormetrics-core",
+      "source": "plugins/razormetrics/razormetrics-core",
+      "description": "RazorMetrics internal Cursor skills and rules: CloudWatch/Jira ALR alarm triage, Liquibase synthetic dataset authoring and validation, plus shared agent rules for requirements clarification and response formatting."
     }
   ]
 }

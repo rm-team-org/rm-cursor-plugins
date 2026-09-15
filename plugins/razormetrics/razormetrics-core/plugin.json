@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "razormetrics-core",
+  "version": "0.1.0",
+  "description": "RazorMetrics internal Cursor skills and rules: CloudWatch/Jira ALR alarm triage, Liquibase synthetic dataset authoring and validation, plus shared agent rules for requirements clarification and response formatting.",
+  "author": {
+    "name": "RazorMetrics"
+  },
+  "repository": "https://bitbucket.org/rm_porcupine/rm_cursor_skills",
+  "keywords": [
+    "razormetrics",
+    "internal",
+    "aws",
+    "cloudwatch",
+    "jira",
+    "alr",
+    "alarm-triage",
+    "liquibase",
+    "synthetic-data"
+  ]
+}
